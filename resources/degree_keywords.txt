@@ -1,0 +1,44 @@
+bsc
+b.sc
+bs
+b.s.
+bachelor
+bachelor of science
+ba
+b.a.
+bachelor of arts
+bba
+bachelor of business administration
+bbs
+bachelor of business studies
+b.tech
+btech
+bachelor of technology
+be
+b.e.
+bachelor of engineering
+
+msc
+m.sc
+m.s.
+master
+master of science
+ma
+m.a.
+master of arts
+mba
+master of business administration
+m.com
+master of commerce
+m.tech
+mtech
+master of technology
+me
+m.e.
+master of engineering
+
+phd
+ph.d
+dphil
+doctorate
+doctor of philosophy

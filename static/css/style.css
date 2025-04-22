@@ -1,0 +1,284 @@
+/* Base layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f2f5f9;
+    color: #2c3e50;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #0057a0;
+    margin-bottom: 0.2em;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 1.5em;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Upload button styling */
+.upload-label {
+    display: inline-block;
+    background-color: #0057a0;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-label:hover {
+    background-color: #004080;
+}
+
+/* Filename display */
+.filename-display {
+    font-size: 0.9em;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Submit button styling */
+.submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+/* Alert messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Uploading message */
+.uploading {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #888;
+    display: none;
+}
+
+/* Job card styles */
+.job-results {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 6px solid #0057a0;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.job-card h3 {
+    margin: 0 0 10px;
+    color: #0057a0;
+}
+
+.job-card p {
+    margin: 4px 0;
+    color: #333;
+}
+
+.job-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background-color: #0057a0;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.job-btn:hover {
+    background-color: #003d73;
+}
+
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #555;
+    background-color: #eaeaea;
+}
+
+footer a {
+    color: #0057a0;
+    text-decoration: none;
+}
+
+footer a.dev-link:hover {
+    text-decoration: underline;
+    color: #003366;
+}
+
+/* Toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+/* Dark theme */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode h1 {
+    color: #64b5f6;
+}
+
+body.dark-mode .subtitle {
+    color: #aaaaaa;
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .upload-label {
+    background-color: #1976d2;
+}
+
+body.dark-mode .upload-label:hover {
+    background-color: #1565c0;
+}
+
+body.dark-mode .filename-display {
+    color: #cccccc;
+}
+
+body.dark-mode .submit-btn {
+    background-color: #388e3c;
+}
+
+body.dark-mode .submit-btn:hover {
+    background-color: #2e7d32;
+}
+
+body.dark-mode .alert.success {
+    background-color: #2e7d32;
+    color: #c8e6c9;
+}
+
+body.dark-mode .alert.error {
+    background-color: #c62828;
+    color: #ffebee;
+}
+
+body.dark-mode footer {
+    background-color: #1a1a1a;
+    color: #999;
+}
+
+body.dark-mode footer a {
+    color: #64b5f6;
+}
+
+body.dark-mode footer a.dev-link {
+    color: #9ecbff;
+}
+
+body.dark-mode .job-card {
+    background-color: #1e1e1e;
+    border-left-color: #64b5f6;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .job-card h3 {
+    color: #64b5f6;
+}
+
+body.dark-mode .job-card p {
+    color: #cccccc;
+}
+
+body.dark-mode .job-btn {
+    background-color: #1976d2;
+    color: white;
+}
+
+body.dark-mode .job-btn:hover {
+    background-color: #1565c0;
+}

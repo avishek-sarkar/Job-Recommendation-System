@@ -1,0 +1,181 @@
+developer → Software Engineer
+programmer → Software Engineer
+software engineer → Software Engineer
+software developer → Software Engineer
+software dev → Software Engineer
+
+frontend developer → Frontend Developer
+front-end developer → Frontend Developer
+front end developer → Frontend Developer
+frontend dev → Frontend Developer
+frontend engineer → Frontend Engineer
+front-end engineer → Frontend Engineer
+front end engineer → Frontend Engineer
+
+backend developer → Backend Developer
+back-end developer → Backend Developer
+back end developer → Backend Developer
+backend dev → Backend Developer
+backend engineer → Backend Engineer
+back-end engineer → Backend Engineer
+back end engineer → Backend Engineer
+
+full stack developer → Full Stack Developer
+full-stack developer → Full Stack Developer
+full stack dev → Full Stack Developer
+full-stack engineer → Full Stack Developer
+
+web developer → Web Developer
+web dev → Web Developer
+senior web developer → Senior Web Developer
+senior web dev → Senior Web Developer
+
+mobile developer → Mobile Developer
+mobile app developer → Mobile Developer
+app developer → Mobile Developer
+
+ios developer → iOS Developer
+iphone developer → iOS Developer
+ios dev → iOS Developer
+
+android developer → Android Developer
+android dev → Android Developer
+
+data scientist → Data Scientist
+data analyst → Data Analyst
+data engineer → Data Engineer
+
+machine learning engineer → ML Engineer
+ml engineer → ML Engineer
+ml dev → ML Engineer
+
+artificial intelligence engineer → AI Engineer
+ai engineer → AI Engineer
+ai dev → AI Engineer
+ai developer → AI Developer
+
+research scientist → Research Scientist
+research assistant → Research Assistant
+
+project manager → Project Manager
+it project manager → Project Manager
+software project manager → Project Manager
+
+product manager → Product Manager
+technical product manager → Product Manager
+
+technical lead → Tech Lead
+tech lead → Tech Lead
+team lead → Team Lead
+team leader → Team Lead
+
+intern → Intern
+trainee → Intern
+
+qa engineer → QA Engineer
+quality assurance → QA Engineer
+quality assurance engineer → QA Engineer
+test engineer → QA Engineer
+
+business analyst → Business Analyst
+business intelligence analyst → Business Analyst
+product analyst → Product Analyst
+
+ui designer → UI Designer
+ux designer → UX Designer
+ui/ux designer → UI/UX Designer
+ux/ui designer → UI/UX Designer
+ui ux designer → UI/UX Designer
+
+graphic designer → Graphic Designer
+web designer → Web Designer
+designer → Designer
+
+consultant → Consultant
+software consultant → Consultant
+it consultant → Consultant
+
+manager → Manager
+assistant manager → Manager
+deputy manager → Manager
+construction manager → Construction Manager
+
+engineer → Software Engineer
+maintenance engineer → Maintenance Engineer
+civil engineer → Civil Engineer
+electrical engineer → Electrical Engineer
+mechanical engineer → Mechanical Engineer
+industrial engineer → Industrial Engineer
+hardware engineer → Hardware Engineer
+
+assistant architect → Assistant Architect
+lead structural designer → Lead Structural Designer
+
+sr. software developer → Senior Software Developer
+sr. software engineer → Senior Software Engineer
+senior software developer → Senior Software Developer
+senior software engineer → Senior Software Engineer
+
+operations executive → Operations Executive
+project coordinator → Project Coordinator
+
+software engineer (flutter) → Flutter Developer
+flutter developer → Flutter Developer
+flutter engineer → Flutter Developer
+
+senior frontend developer → Senior Frontend Developer
+senior front-end developer → Senior Frontend Developer
+senior front end developer → Senior Frontend Developer
+
+senior backend developer → Senior Backend Developer
+senior back-end developer → Senior Backend Developer
+senior back end developer → Senior Backend Developer
+
+php developer → PHP Developer
+javascript developer → Javascript Developer
+java developer → Java Developer
+laravel developer → Laravel Developer
+.net developer → .Net Developer
+asp.net developer → Asp.Net Developer
+wordpress developer → WordPress Developer
+wp developer → WordPress Developer
+shopify developer → Shopify Developer
+
+digital marketing strategist → Digital Marketing Strategist
+seo specialist → SEO Specialist
+senior seo specialist → SEO Specialist
+seo expert → SEO Specialist
+e-commerce seo expert → SEO Specialist
+
+assistant network engineer → Network Engineer
+network engineer → Network Engineer
+network administrator → Network Administrator
+
+it support engineer → IT Support Engineer
+system support engineer → IT Support Engineer
+system administrator → IT Support Engineer
+
+senior executive → Senior Executive
+junior executive → Junior Executive
+
+marketing officer → Marketing Officer
+sales executive → Sales Executive
+business development executive → Business Development Executive
+
+devops engineer → DevOps Engineer
+devops specialist → DevOps Engineer
+site reliability engineer → DevOps Engineer
+
+cyber security engineer → Cybersecurity Engineer
+cybersecurity engineer → Cybersecurity Engineer
+senior cyber security engineer → Cybersecurity Engineer
+cyber security expert → Cybersecurity Engineer
+cybersecurity expert → Cybersecurity Engineer
+
+technology specialist → Technology Specialist
+mis officer → MIS Officer
+
+professor → Professor
+assistant professor → Assistant Professor
+associate professor → Associate Professor
+lecturer → Lecturer

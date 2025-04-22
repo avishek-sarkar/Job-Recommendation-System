@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Upload your resume and get personalized job recommendations using AI.">
+    <title>Job Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle Theme">🌙</button>
+
+    <main>
+        <section class="container">
+            <header>
+                <h1>Job Recommendation System</h1>
+                <p class="subtitle">Please upload your resume in PDF format to get job suggestions tailored only for you.</p>
+            </header>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="card">
+                <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" onsubmit="return showUploading()">
+                    <label for="resume" class="upload-label" role="button" aria-label="Upload PDF Resume" onclick="clearFlashMessages()">Choose PDF File</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf" hidden onchange="checkFileType(this)">
+                    <p id="filename-display" class="filename-display" aria-live="polite"></p>
+                    <button type="submit" class="submit-btn" onclick="clearFlashMessages()">Upload</button>
+                    <p id="uploading-msg" class="uploading" aria-live="polite">Uploading...</p>
+                </form>
+            </div>
+
+            <section id="output">
+                {% if top_matches %}
+                    <h2>Top Job Recommendations</h2>
+                    <div class="job-results">
+                        {% for job in top_matches %}
+                            <div class="job-card">
+                                <h3>{{ job['Original_Title'] }}</h3>
+                                <p><strong>Company:</strong> {{ job['Company'] }}</p>
+                                <p><strong>Location:</strong> {{ job['Location'] }}</p>
+                                <p><strong>Deadline:</strong> {{ job['Deadline'] }}</p>
+                                <a href="{{ job['Job Link'] }}" class="job-btn" target="_blank" rel="noopener noreferrer">See Job Circular</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% elif has_results %}
+                    <p>No matching jobs found. Please try again with a different resume.</p>
+                {% endif %}
+            </section>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; {{ year }} Job Recommendation System. All rights reserved.</p>
+        <p>Contact Info: avishek1416@gmail.com</p>
+        <p><a href="{{ url_for('developerinfo') }}" class="dev-link">Developer Info</a></p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
