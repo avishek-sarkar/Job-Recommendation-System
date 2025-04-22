@@ -1,0 +1,13 @@
+# Ignore virtual environment
+venv/
+
+# Python-related
+*.pyc
+__pycache__/
+
+# VS Code-related
+.vscode/
+
+# OS-related
+.DS_Store
+Thumbs.db
