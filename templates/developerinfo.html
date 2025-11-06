@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the developers behind the Job Recommendation System">
+    <title>Developer Info - Job Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    
+    <div class="dev-container">
+        <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+        
+        <div class="dev-header">
+            <h1>Meet the Developers</h1>
+            <p>The team behind the Job Recommendation System</p>
+        </div>
+        
+        <div id="developers-content">
+            <div class="loading">Loading developer information...</div>
+        </div>
+        
+        <div class="tech-stack">
+            <h3>Technology Stack</h3>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">spaCy</span>
+                <span class="tech-tag">scikit-learn</span>
+                <span class="tech-tag">pandas</span>
+                <span class="tech-tag">PyMuPDF</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">NLP</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dev-footer">
+        <p>&copy; {{ year }} Job Recommendation System. All rights reserved.</p>
+        <p>Contact Info: avishek1416@gmail.com</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,43 +1,24 @@
-import spacy
 import re
 import fitz  # PyMuPDF
-from pathlib import Path
-
-# Load spaCy NLP model
-nlp = spacy.load("en_core_web_sm")
-
-# Load external resources
-RESOURCE_DIR = Path(__file__).resolve().parent.parent / "resources"
-
-def load_lines(filepath):
-    """Load lines from a file as a set of lowercase strings."""
-    return {line.strip().lower() for line in open(filepath, encoding="utf-8") if line.strip() and not line.startswith("#")}
-
-def load_title_mappings(filepath):
-    """Load job title mappings from a file."""
-    title_map = {}
-    with open(filepath, encoding="utf-8") as file:
-        for line in file:
-            if "→" in line:
-                key, value = line.strip().lower().split("→")
-                title_map[key.strip()] = value.strip()
-    return title_map
+from typing import Dict, List
+from utilities.common import preprocess_text, load_lines, load_title_mappings, RESOURCE_DIR, nlp, extract_qualifications
 
 # Load resources
 SKILL_LIST = load_lines(RESOURCE_DIR / "skills.txt")
 TITLE_SYNONYMS = load_title_mappings(RESOURCE_DIR / "job_titles.txt")
-DEGREE_KEYWORDS = load_lines(RESOURCE_DIR / "degree_keywords.txt")
 TECH_WORDS = set(SKILL_LIST) | set(TITLE_SYNONYMS.keys())
 
-# Shared text preprocessing
-def preprocess_text(text):
-    """Lowercase, remove stopwords and punctuation, lemmatize."""
-    doc = nlp(text.lower())
-    return " ".join([token.lemma_ for token in doc if not token.is_stop and not token.is_punct])
-
 # PDF text extraction
-def extract_text_from_pdf(pdf_path):
-    """Extract text from a PDF file."""
+def extract_text_from_pdf(pdf_path: str) -> str:
+    """
+    Extract text from a PDF file.
+    
+    Args:
+        pdf_path (str): Path to the PDF file.
+        
+    Returns:
+        str: Extracted text from all pages of the PDF, or empty string if extraction fails.
+    """
     try:
         return " ".join([page.get_text() for page in fitz.open(pdf_path)])
     except Exception as e:
@@ -45,22 +26,53 @@ def extract_text_from_pdf(pdf_path):
         return ""
 
 # Generate n-grams
-def generate_ngrams(words, n):
-    """Generate n-grams from a list of words."""
+def generate_ngrams(words: List[str], n: int) -> List[str]:
+    """
+    Generate n-grams from a list of words.
+    
+    Args:
+        words (list): List of words to generate n-grams from.
+        n (int): Size of the n-grams to generate.
+        
+    Returns:
+        list: List of n-grams as space-separated strings.
+    """
     return [" ".join(words[i:i + n]) for i in range(len(words) - n + 1)]
 
 # Resume component extractors
-def normalize_title(title):
-    """Normalize job titles using synonyms."""
+def normalize_title(title: str) -> str:
+    """
+    Normalize job titles using predefined synonyms.
+    
+    Args:
+        title (str): Raw job title to normalize.
+        
+    Returns:
+        str: Normalized job title.
+    """
     title = title.lower()
     for key, value in TITLE_SYNONYMS.items():
         if re.search(rf"\b{re.escape(key)}\b", title):
             return value
     return title.title()
 
-def extract_skills(text):
-    """Extract skills from text using unigrams, bigrams, and trigrams."""
+def extract_skills(text: str) -> List[str]:
+    """
+    Extract skills from text using unigrams, bigrams, and trigrams.
+    
+    Args:
+        text (str): Raw text to extract skills from.
+        
+    Returns:
+        list: Sorted list of matched skills found in the text.
+    """
+    if not text or not text.strip():
+        return []
+    
     words = preprocess_text(text).split()  # Preprocessed text split into words
+    if not words:
+        return []
+    
     unigrams = words
     bigrams = generate_ngrams(words, 2)
     trigrams = generate_ngrams(words, 3)
@@ -71,8 +83,19 @@ def extract_skills(text):
     # Match n-grams with SKILL_LIST
     return sorted(skill for skill in SKILL_LIST if skill in all_ngrams)
 
-def extract_experience(text):
-    """Extract experience information from text."""
+def extract_experience(text: str) -> List[str]:
+    """
+    Extract experience information from text using regex patterns.
+    
+    Args:
+        text (str): Raw text to extract experience from.
+        
+    Returns:
+        list: Sorted list of experience strings found in the text.
+    """
+    if not text or not text.strip():
+        return []
+    
     processed = preprocess_text(text)
     patterns = [
         r"\b\d+\s*(?:to|-)\s*\d+\s*years?\b",
@@ -85,27 +108,19 @@ def extract_experience(text):
         experiences.update(re.findall(pattern, processed))
     return sorted(list(experiences))
 
-def extract_qualifications(text):
-    """Extract degree qualifications from text."""
-    text_lower = text.lower()
-    degrees_found = set()
-
-    for kw in DEGREE_KEYWORDS:
-        if re.search(rf"\b{re.escape(kw)}\b", text_lower):
-            degrees_found.add(kw)
-
-    patterns = [
-        r"\b(b\.?s\.?|m\.?s\.?|bsc|msc|ph\.?d\.?|bachelor(?:'s)?|master(?:'s)?)\b",
-        r"(bachelor|master) of [a-z\s]+" 
-    ]
-    for pattern in patterns:
-        for match in re.findall(pattern, text_lower):
-            degrees_found.add(match.strip())
-
-    return sorted(degrees_found)
-
-def extract_location(text):
-    """Extract location information from text."""
+def extract_location(text: str) -> List[str]:
+    """
+    Extract location information from text using spaCy NER.
+    
+    Args:
+        text (str): Raw text to extract locations from.
+        
+    Returns:
+        list: Sorted list of location entities found in the text, excluding tech-related terms.
+    """
+    if not text or not text.strip():
+        return []
+    
     doc = nlp(text)
     return sorted({
         ent.text.strip()
@@ -113,8 +128,19 @@ def extract_location(text):
         if ent.label_ in {"GPE", "LOC", "FAC"} and ent.text.lower() not in TECH_WORDS
     })
 
-def extract_title(text):
-    """Extract job titles from text based on predefined synonyms."""
+def extract_title(text: str) -> List[str]:
+    """
+    Extract job titles from text based on predefined synonyms.
+    
+    Args:
+        text (str): Raw text to extract job titles from.
+        
+    Returns:
+        list: Sorted list of normalized job titles found in the text.
+    """
+    if not text or not text.strip():
+        return []
+    
     lines = text.splitlines()
     titles_found = set()
     for line in lines:
@@ -124,8 +150,21 @@ def extract_title(text):
     return sorted(titles_found)
 
 # Main parser
-def parse_resume(pdf_path):
-    """Parse a resume PDF and extract key components."""
+def parse_resume(pdf_path: str) -> Dict[str, List[str]]:
+    """
+    Parse a resume PDF and extract key components.
+    
+    Args:
+        pdf_path (str): Path to the resume PDF file.
+        
+    Returns:
+        dict: Dictionary containing extracted features:
+            - skills (list): Identified skills
+            - experience (list): Years of experience
+            - degrees (list): Educational qualifications
+            - location (list): Geographic locations
+            - titles (list): Job titles
+    """
     text = extract_text_from_pdf(pdf_path)
     return {
         "skills": extract_skills(text),
