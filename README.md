@@ -237,7 +237,7 @@ This is the highest-value collaboration area for contributors.
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT [License](LICENSE).
 
 ## Collaboration
 
@@ -252,9 +252,10 @@ If you contribute meaningfully, proper credit will be provided.
 
 ## Developer Info
 
-- Avishek Sarkar: https://github.com/avishek-sarkar
-- Prantic Paul: https://github.com/prantic007
-- In-app developer page: `http://127.0.0.1:5000/developerinfo`
+| Name | GitHub Profile |
+|---|---|
+| Avishek Sarkar | [github.com/avishek-sarkar](https://github.com/avishek-sarkar) |
+| Prantic Paul | [github.com/prantic007](https://github.com/prantic007) |
 
 ## Contact
 
