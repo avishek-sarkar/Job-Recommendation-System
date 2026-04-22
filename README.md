@@ -57,18 +57,17 @@ flowchart TD
     F --> G[process_resume]
     G --> H[parse_resume]
     H --> I[extract_text_from_pdf]
-    H --> J[extract_skills, experience, degrees, location, titles]
-    G --> K[load_and_clean_dataset]
-    G --> L[combine_resume_features]
-    I --> M[TF-IDF vectorization 1-3 grams]
-    J --> M
-    L --> M
-    M --> N[cosine_similarity and top N ranking]
-    N --> O[return top job matches]
-    O --> P[cleanup_file]
-    P --> Q[render index with recommendations]
-    A --> R[User opens /developerinfo]
-    R --> S[developerinfo route renders profile page]
+    I --> J[extract_skills, experience, degrees, location, titles]
+    J --> K[combine_resume_features]
+    D --> L[load_and_clean_dataset]
+    L --> M[tokenize_and_feature_extraction]
+    K --> N[TF-IDF vectorization 1-3 grams]
+    N --> O[cosine_similarity and top N ranking]
+    P --> Q[return top job matches]
+    Q --> O[cleanup_file]
+    R --> S[render index with recommendations]
+    A --> T[User opens /developerinfo]
+    T --> U[developerinfo route renders profile page]
 ```
 
 ## How It Works
@@ -253,30 +252,20 @@ If you contribute meaningfully, proper credit will be provided.
 
 ## Developer Info
 
-<table>
-    <tr>
-        <th>Developer</th>
-        <th>GitHub Profile</th>
-    </tr>
-    <tr>
-        <td>
-            <a href="https://github.com/avishek-sarkar">
-                <img src="https://github.com/avishek-sarkar.png?size=80" width="48" height="48" alt="Avishek Sarkar" style="border-radius:50%; vertical-align:middle; margin-right:10px;" />
-                <strong>Avishek Sarkar</strong>
-            </a>
-        </td>
-        <td><a href="https://github.com/avishek-sarkar">github.com/avishek-sarkar</a></td>
-    </tr>
-    <tr>
-        <td>
-            <a href="https://github.com/prantic007">
-                <img src="https://github.com/prantic007.png?size=80" width="48" height="48" alt="Prantic Paul" style="border-radius:50%; vertical-align:middle; margin-right:10px;" />
-                <strong>Prantic Paul</strong>
-            </a>
-        </td>
-        <td><a href="https://github.com/prantic007">github.com/prantic007</a></td>
-    </tr>
-</table>
+<div align="center">
+    <div style="display: inline-block; margin: 0 24px; text-align: center; vertical-align: top;">
+        <a href="https://github.com/avishek-sarkar">
+            <img src="https://github.com/avishek-sarkar.png?size=96" width="72" height="72" alt="Avishek Sarkar" style="border-radius: 50%; display: block; margin: 0 auto 10px;" />
+        </a>
+        <strong>Avishek Sarkar</strong>
+    </div>
+    <div style="display: inline-block; margin: 0 24px; text-align: center; vertical-align: top;">
+        <a href="https://github.com/prantic007">
+            <img src="https://github.com/prantic007.png?size=96" width="72" height="72" alt="Prantic Paul" style="border-radius: 50%; display: block; margin: 0 auto 10px;" />
+        </a>
+        <strong>Prantic Paul</strong>
+    </div>
+</div>
 
 ## Contact
 
