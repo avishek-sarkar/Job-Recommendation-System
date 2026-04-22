@@ -59,13 +59,14 @@ flowchart TD
     H --> I[extract_text_from_pdf]
     I --> J[extract_skills, experience, degrees, location, titles]
     J --> K[combine_resume_features]
-    D --> L[load_and_clean_dataset]
+    F --> L[load_and_clean_dataset]
     L --> M[tokenize_and_feature_extraction]
     K --> N[TF-IDF vectorization 1-3 grams]
-    N --> O[cosine_similarity and top N ranking]
+    M --> N
+    N --> P[cosine_similarity and top N ranking]
     P --> Q[return top job matches]
     Q --> O[cleanup_file]
-    R --> S[render index with recommendations]
+    O --> S[render index with recommendations]
     A --> T[User opens /developerinfo]
     T --> U[developerinfo route renders profile page]
 ```
@@ -252,20 +253,19 @@ If you contribute meaningfully, proper credit will be provided.
 
 ## Developer Info
 
-<div align="center">
-    <div style="display: inline-block; margin: 0 24px; text-align: center; vertical-align: top;">
-        <a href="https://github.com/avishek-sarkar">
-            <img src="https://github.com/avishek-sarkar.png?size=96" width="72" height="72" alt="Avishek Sarkar" style="border-radius: 50%; display: block; margin: 0 auto 10px;" />
-        </a>
+<p align="center">
+    <a href="https://github.com/avishek-sarkar">
+        <img src="https://github.com/avishek-sarkar.png?size=120" width="80" height="80" alt="Avishek Sarkar" style="border-radius:50%;" />
+        <br />
         <strong>Avishek Sarkar</strong>
-    </div>
-    <div style="display: inline-block; margin: 0 24px; text-align: center; vertical-align: top;">
-        <a href="https://github.com/prantic007">
-            <img src="https://github.com/prantic007.png?size=96" width="72" height="72" alt="Prantic Paul" style="border-radius: 50%; display: block; margin: 0 auto 10px;" />
-        </a>
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/prantic007">
+        <img src="https://github.com/prantic007.png?size=120" width="80" height="80" alt="Prantic Paul" style="border-radius:50%;" />
+        <br />
         <strong>Prantic Paul</strong>
-    </div>
-</div>
+    </a>
+</p>
 
 ## Contact
 
