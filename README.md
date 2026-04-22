@@ -54,8 +54,7 @@ flowchart TD
     C --> D{validate_file_upload}
     D -->|invalid| E[flash error and redirect to index]
     D -->|valid| F[save_uploaded_file]
-    F --> G[process_resume]
-    G --> H[parse_resume]
+    F --> H[parse_resume]
     H --> I[extract_text_from_pdf]
     I --> J[extract_skills, experience, degrees, location, titles]
     J --> K[combine_resume_features]
@@ -253,19 +252,20 @@ If you contribute meaningfully, proper credit will be provided.
 
 ## Developer Info
 
-<p align="center">
-    <a href="https://github.com/avishek-sarkar">
-        <img src="https://github.com/avishek-sarkar.png?size=120" width="80" height="80" alt="Avishek Sarkar" style="border-radius:50%;" />
-        <br />
-        <strong>Avishek Sarkar</strong>
-    </a>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/prantic007">
-        <img src="https://github.com/prantic007.png?size=120" width="80" height="80" alt="Prantic Paul" style="border-radius:50%;" />
-        <br />
-        <strong>Prantic Paul</strong>
-    </a>
-</p>
+<div align="center">
+    <div style="display: inline-block; width: 180px; padding: 16px; margin: 0 12px; border: 1px solid #d0d7de; border-radius: 8px; text-align: center; vertical-align: top;">
+        <a href="https://github.com/avishek-sarkar">
+            <img src="https://github.com/avishek-sarkar.png?size=140" width="88" height="88" alt="Avishek Sarkar" style="display: block; margin: 0 auto 10px;" />
+            <strong>Avishek Sarkar</strong>
+        </a>
+    </div>
+    <div style="display: inline-block; width: 180px; padding: 16px; margin: 0 12px; border: 1px solid #d0d7de; border-radius: 8px; text-align: center; vertical-align: top;">
+        <a href="https://github.com/prantic007">
+            <img src="https://github.com/prantic007.png?size=140" width="88" height="88" alt="Prantic Paul" style="display: block; margin: 0 auto 10px;" />
+            <strong>Prantic Paul</strong>
+        </a>
+    </div>
+</div>
 
 ## Contact
 
