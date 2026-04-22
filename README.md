@@ -56,18 +56,17 @@ flowchart TD
     D -->|valid| F[save_uploaded_file]
     F --> G[process_resume]
     G --> H[parse_resume]
-    H --> H1[extract_text_from_pdf]
-    H --> H2[extract_skills, experience, degrees, location, titles]
-    G --> I[match_resume_to_jobs]
-    I --> I1[load_and_clean_dataset]
-    I --> I2[combine_resume_features]
-    I --> I3[TF-IDF ngrams 1..3]
-    I --> I4[cosine_similarity and top N ranking]
-    I4 --> J[return top job matches]
-    J --> K[cleanup_file]
-    K --> L[render index with recommendations]
-    A --> M[User opens /developerinfo]
-    M --> N[developerinfo route renders profile page]
+    H --> I[extract_text_from_pdf]
+    I --> J[extract_skills, experience, degrees, location, titles]
+    G --> K[load_and_clean_dataset]
+    K --> L[combine_resume_features]
+    L,I --> M[TF-IDF ngrams 1..3]
+    M --> N[cosine_similarity and top N ranking]
+    N --> O[return top job matches]
+    O --> P[cleanup_file]
+    P --> Q[render index with recommendations]
+    A --> R[User opens /developerinfo]
+    R --> T[developerinfo route renders profile page]
 ```
 
 ## How It Works
@@ -252,10 +251,10 @@ If you contribute meaningfully, proper credit will be provided.
 
 ## Developer Info
 
-| Name | GitHub Profile |
+| Developer | GitHub Profile |
 |---|---|
-| Avishek Sarkar | [github.com/avishek-sarkar](https://github.com/avishek-sarkar) |
-| Prantic Paul | [github.com/prantic007](https://github.com/prantic007) |
+| [![Avishek Sarkar](https://github.com/avishek-sarkar.png?size=50)](https://github.com/avishek-sarkar) **Avishek Sarkar** | [github.com/avishek-sarkar](https://github.com/avishek-sarkar) |
+| [![Prantic Paul](https://github.com/prantic007.png?size=50)](https://github.com/prantic007) **Prantic Paul** | [github.com/prantic007](https://github.com/prantic007) |
 
 ## Contact
 
