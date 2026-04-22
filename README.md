@@ -1,793 +1,268 @@
-<div align="center">
+# Job Recommendation System
 
-# 🎯 Job Recommendation System
+AI-powered web application that parses a PDF resume and recommends top matching jobs using NLP and TF-IDF based similarity scoring.
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=0057A0&center=true&vCenter=true&random=false&width=600&lines=AI-Powered+Job+Matching;Smart+Resume+Analysis;Find+Your+Perfect+Job!" alt="Typing SVG" />
+## Overview
 
-[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-2.0+-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![Machine Learning](https://img.shields.io/badge/Machine_Learning-Enabled-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://scikit-learn.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+This project helps job seekers quickly identify relevant opportunities by matching resume content against a structured job dataset.
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0057a0,100:28a745&height=100&section=header&fontSize=90" width="100%"/>
-</p>
+Core capabilities:
 
-**An intelligent job matching system that analyzes your resume and recommends the most suitable jobs using advanced NLP and Machine Learning techniques.**
+- Resume parsing from PDF files.
+- Skill, title, experience, degree, and location extraction.
+- Weighted feature composition for better ranking quality.
+- Top-N job recommendation from dataset.
+- Flask UI with upload validation and dark mode.
+- Developer profile page with live GitHub API data.
 
-[Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [Technology Stack](#-technology-stack) • [Collaboration](#-collaboration-opportunity)
+## Why This Project
 
----
+Manual job search is time-consuming and inconsistent. This system automates the matching process so users can prioritize the most relevant opportunities faster.
 
-</div>
+## Key Project Facts
 
-## 📋 Table of Contents
+- Jobs in dataset: 321
+- Skills keywords: 304
+- Title mappings/synonyms: 143
+- Degree keywords: 42
+- Max upload size: 10 MB
+- Allowed upload type: PDF only
+- Default recommendations returned: 5
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Demo](#-demo)
-- [How It Works](#-how-it-works)
-- [Technology Stack](#-technology-stack)
-- [File Structure](#-file-structure)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Configuration](#-configuration)
-- [Collaboration Opportunity](#-collaboration-opportunity)
-- [Developers](#-developers)
-- [Contact](#-contact)
-- [License](#-license)
+## Tech Stack
 
----
+### Frontend
 
-## 🌟 Overview
+- HTML5
+- CSS3
+- JavaScript
 
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
-</div>
+### Backend
 
-The **Job Recommendation System** is a full-stack AI-powered job recommendation engine that reduces job search time from hours to seconds. Built with Python, Flask, and scikit-learn, this system uses Natural Language Processing and Machine Learning to analyze resumes and match candidates with relevant positions with great accuracy. Processes 10MB PDFs in under 2 seconds with weighted scoring algorithms.
+- Python 3.8+
+- Flask 3.1.0
+- pandas 2.2.3
+- NumPy 1.26.4
+- scikit-learn 1.6.1
 
----
+### NLP and PDF Processing
 
-## 💡 Problem Statement & Solution
+- spaCy 3.7.2 with `en_core_web_sm`
+- PyMuPDF 1.25.5
 
-### The Challenge
+### Supporting Libraries
 
-**Problem:** Job seekers spend an average of **3-5 hours per day** manually searching through hundreds of job postings, with only a **2-3% application-to-interview conversion rate**. Traditional job boards lack intelligent matching based on actual resume content, leading to:
-- ❌ Time wasted on irrelevant job applications
-- ❌ Missed opportunities for suitable positions
-- ❌ Manual skill and experience matching
-- ❌ No personalized job recommendations
+- Werkzeug 3.1.3
+- python-dotenv 1.0.0
+- requests 2.32.3
 
-### Our Solution
-
-An **AI-powered matching engine** that:
-- ✅ Automatically extracts key features from resumes using advanced NLP
-- ✅ Matches candidates with jobs based on 5 weighted factors
-- ✅ Reduces job search time from hours to **< 2 seconds**
-- ✅ Provides similarity scores to prioritize best-fit opportunities
-- ✅ Handles complex education formats with degree normalization
-
-### Technical Innovation
-- 🎯 **Weighted Scoring Algorithm:** Prioritizes job titles (10x) and skills (9x) for maximum relevance
-- 🎓 **Smart Degree Normalization:** Recognizes 20+ education formats (B.Sc, Bachelor, M.Tech, etc.)
-- 🧠 **Multi-Factor Analysis:** Combines titles, skills, experience, education, and location
-- ⚡ **Real-Time Processing:** Instant recommendations upon resume upload
-- 🌓 **Modern UX:** Dark mode support with responsive design
-
----
-
-## 🎖️ Business Impact & Key Metrics
-
-<div align="center">
-
-### Project Achievements
-
-| Metric | Achievement | Impact |
-|--------|-------------|--------|
-| 🎯 **Matching Accuracy** | 92%+ similarity scores | High-relevance job recommendations |
-| ⚡ **Processing Speed** | < 2 seconds | Instant resume analysis + matching |
-| 📈 **Dataset Coverage** | 321 curated jobs | 50+ role types across industries |
-| 🔧 **Code Quality** | 100% type hints | Zero circular dependencies |
-| 💾 **Scalability** | Handles 10MB+ PDFs | Optimized parsing with PyMuPDF |
-| 🎨 **User Experience** | Dark/Light themes | Modern, accessible interface |
-| 📊 **Algorithm Efficiency** | O(n) time complexity | Scales linearly with dataset size |
-| 🧹 **Code Maintainability** | Modular architecture | Single source of truth design |
-
-### Business Value
-
-- 💰 **Time Savings:** Reduces job search time by **95%** (from 3-5 hours to < 2 seconds)
-- 🎯 **Improved Matching:** **10x better** than keyword-based search through weighted ML algorithms
-- 📈 **Scalability:** Architecture supports **10,000+** job postings with minimal performance impact
-- 🔄 **Reusability:** Modular design allows easy integration with external job APIs
-
-</div>
-
----
-
-## 🔑 Skills & Technologies Demonstrated
-
-<div align="center">
-
-<table>
-<tr>
-<td valign="top" width="33%">
-
-### 🤖 Machine Learning & AI
-- TF-IDF Vectorization
-- Cosine Similarity
-- Feature Engineering
-- Weighted Scoring Algorithms
-- Natural Language Processing
-- Named Entity Recognition (NER)
-
-</td>
-<td valign="top" width="33%">
-
-### 💻 Software Engineering
-- Modular Architecture
-- Design Patterns
-- Type Hints (100% coverage)
-- Error Handling & Validation
-- Code Refactoring
-- RESTful API Design
-- Git Version Control
-
-</td>
-<td valign="top" width="33%">
-
-### 🛠️ Technical Stack
-- **Backend:** Python, Flask
-- **ML/NLP:** scikit-learn, spaCy
-- **Data:** pandas, NumPy
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Tools:** PyMuPDF, Werkzeug
-
-</td>
-</tr>
-<tr>
-<td valign="top" width="33%">
-
-### 📊 Data Processing
-- PDF Text Extraction
-- Text Preprocessing
-- Lemmatization
-- Regex Pattern Matching
-- CSV Data Handling
-- Feature Extraction
-
-</td>
-<td valign="top" width="33%">
-
-### 🎨 Full-Stack Development
-- Responsive Web Design
-- Dark Mode Implementation
-- File Upload Systems
-- Real-time Feedback
-- GitHub API Integration
-- LocalStorage Management
-
-</td>
-<td valign="top" width="33%">
-
-### 🔬 Problem Solving
-- Algorithm Optimization
-- Performance Tuning
-- Scalability Planning
-- User Experience Design
-- Technical Documentation
-- Collaborative Development
-
-</td>
-</tr>
-</table>
-
-</div>
-
----
-
-## ✨ Features
-
-<table>
-<tr>
-<td width="50%">
-
-### 🔍 Intelligent Resume Analysis
-- PDF text extraction using PyMuPDF
-- Named Entity Recognition (NER) with spaCy
-- Skill extraction from custom keyword database
-- Experience level detection (years)
-- Location identification
-- Degree qualification extraction
-
-</td>
-<td width="50%">
-
-### 🎯 Advanced Job Matching
-- TF-IDF feature vectorization
-- Cosine similarity calculation
-- Multi-factor weighted scoring:
-  - Job Titles (10x)
-  - Skills (9x)
-  - Experience (3x)
-  - Education (3x)
-  - Location (2x)
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### 💻 Modern Web Interface
-- Responsive design for all devices
-- Dark/Light theme toggle
-- File upload with validation
-- Real-time feedback
-- Developer information page with GitHub integration
-
-</td>
-<td width="50%">
-
-### 🔧 Technical Excellence
-- Modular code architecture
-- Type hints for better code quality
-- Error handling and validation
-- Efficient resource management
-- RESTful API design
-
-</td>
-</tr>
-</table>
-
----
-
-## 🎬 Demo
-
-<div align="center">
-
-### 📤 Upload Resume → 🔄 AI Analysis → 🎯 Get Recommendations
+## System Architecture
 
 ```mermaid
-graph LR
-    A[📄 Upload Resume] -->|Parse PDF| B[🔍 Extract Features]
-    B -->|NLP Processing| C[🧠 Feature Vectorization]
-    C -->|Similarity Calculation| D[🎯 Top 5 Matches]
-    D -->|Display Results| E[✅ Job Recommendations]
-    
-    style A fill:#0057a0,stroke:#003d73,stroke-width:2px,color:#fff
-    style B fill:#28a745,stroke:#218838,stroke-width:2px,color:#fff
-    style C fill:#17a2b8,stroke:#117a8b,stroke-width:2px,color:#fff
-    style D fill:#ffc107,stroke:#e0a800,stroke-width:2px,color:#000
-    style E fill:#0057a0,stroke:#003d73,stroke-width:2px,color:#fff
+flowchart LR
+    U[User uploads PDF resume] --> V[Flask route /upload]
+    V --> W[File validation and save]
+    W --> X[Resume parser]
+    X --> X1[PDF text extraction]
+    X --> X2[Skill extraction]
+    X --> X3[Experience extraction]
+    X --> X4[Degree extraction]
+    X --> X5[Location and title extraction]
+    X --> Y[Job matcher]
+    Y --> Y1[Load and clean job dataset]
+    Y --> Y2[Normalize education and keywords]
+    Y --> Y3[Combine weighted resume features]
+    Y --> Y4[TF-IDF vectorization]
+    Y --> Y5[Cosine similarity ranking]
+    Y --> Z[Top job recommendations]
+    Z --> UI[Render results in index page]
 ```
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+## How It Works
 
-</div>
+1. User uploads a resume PDF from the home page.
+2. Backend validates file type and file size.
+3. Resume text is extracted using PyMuPDF.
+4. Resume features are extracted:
+   - Skills
+   - Experience patterns
+   - Degrees
+   - Locations
+   - Job titles
+5. Job dataset is loaded and cleaned.
+6. Job-side education is normalized with the same degree extractor logic.
+7. Resume features are combined with configurable weights.
+8. Job text and resume text are vectorized using TF-IDF (1-3 grams).
+9. Cosine similarity scores are computed.
+10. Top matches are returned and rendered in the UI.
 
----
+## Feature Details
 
-## 🔄 How It Works
+### Resume Parsing
 
-<div align="center">
+- PDF text extraction via PyMuPDF.
+- NLP preprocessing via spaCy (`en_core_web_sm`).
+- N-gram based skill matching (unigram, bigram, trigram).
+- Regex-based experience extraction.
+- NER-based location extraction (`GPE`, `LOC`, `FAC`).
+- Title normalization through synonym mapping.
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Flask App
-    participant Resume Parser
-    participant Job Matcher
-    participant Database
-    
-    User->>Flask App: Upload Resume PDF
-    Flask App->>Resume Parser: Extract Text
-    Resume Parser->>Resume Parser: Parse Skills, Experience, Education
-    Resume Parser-->>Flask App: Return Features
-    Flask App->>Job Matcher: Load Job Dataset
-    Job Matcher->>Database: Read job_dataset.csv
-    Database-->>Job Matcher: Return 321 Jobs
-    Job Matcher->>Job Matcher: Normalize Degrees
-    Job Matcher->>Job Matcher: TF-IDF Vectorization
-    Job Matcher->>Job Matcher: Calculate Cosine Similarity
-    Job Matcher->>Job Matcher: Apply Weighted Scoring
-    Job Matcher-->>Flask App: Top 5 Recommendations
-    Flask App-->>User: Display Job Cards with Scores
-```
+### Job Matching Logic
 
-</div>
+Matching uses weighted resume fields from `Config.FEATURE_WEIGHTS`:
 
-### 📊 Workflow Steps
+- titles: 10
+- skills: 9
+- experience: 3
+- degrees: 3
+- location: 2
 
-1. **📄 Resume Upload**: User uploads a PDF resume through the web interface
-2. **🔍 Text Extraction**: PyMuPDF extracts text content from the PDF
-3. **🧩 Feature Parsing**: 
-   - Extract skills using keyword matching
-   - Identify job titles from predefined list
-   - Calculate experience years using regex
-   - Extract education qualifications
-   - Identify location using NER
-4. **🔄 Data Preprocessing**: 
-   - Text normalization and lemmatization with spaCy
-   - Degree standardization (B.Sc → bachelor, M.Tech → master)
-   - Combine features with weighted importance
-5. **📊 Job Dataset Processing**:
-   - Load 321 jobs from CSV database
-   - Normalize job education requirements
-   - Preprocess job descriptions
-6. **🎯 Similarity Calculation**:
-   - TF-IDF vectorization of resume and job features
-   - Calculate cosine similarity scores
-   - Apply weighted factors (titles: 10x, skills: 9x, etc.)
-7. **📋 Ranking & Display**: Show top 5 most similar jobs
+Then:
 
----
+- Dataset text is preprocessed.
+- TF-IDF vectorizer uses `ngram_range=(1, 3)`, `min_df=1`, `max_df=0.9`.
+- Cosine similarity ranks jobs.
+- Top N jobs are returned (default: 5).
 
-## 🛠️ Technology Stack
+### Interface Features
 
-<div align="center">
+- Resume upload validation.
+- Live filename feedback.
+- Dark/light theme toggle.
+- Developer info page with GitHub API data.
 
-### Backend Technologies
-
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-
-### NLP & Machine Learning
-
-[![spaCy](https://img.shields.io/badge/spaCy-09A3D5?style=for-the-badge&logo=spacy&logoColor=white)](https://spacy.io/)
-[![PyMuPDF](https://img.shields.io/badge/PyMuPDF-FF6B6B?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](https://pymupdf.readthedocs.io/)
-
-### Frontend Technologies
-
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-
-</div>
-
-### 📦 Core Libraries
-
-| Library | Version | Purpose |
-|---------|---------|---------|
-| **Flask** | 2.0+ | Web framework for building the application |
-| **spaCy** | 3.0+ | Advanced NLP processing and NER |
-| **scikit-learn** | 1.0+ | TF-IDF vectorization and cosine similarity |
-| **pandas** | 1.3+ | Data manipulation and CSV handling |
-| **PyMuPDF (fitz)** | 1.18+ | PDF text extraction |
-| **Werkzeug** | 2.0+ | WSGI utilities and file handling |
-
-### 🧠 Machine Learning Techniques
-
-- **TF-IDF (Term Frequency-Inverse Document Frequency)**: Converts text into numerical vectors
-- **Cosine Similarity**: Measures similarity between resume and job vectors
-- **Named Entity Recognition (NER)**: Identifies locations and organizations
-- **Lemmatization**: Reduces words to base forms for better matching
-- **Feature Engineering**: Weighted combination of multiple features
-
----
-
-## 📁 File Structure
-
-```
-Job-Recommendation-System/
-│
-├── 📄 app.py                          # Main Flask application
-├── 📄 config.py                       # Configuration settings
-├── 📄 requirements.txt                # Python dependencies
-├── 📄 README.md                       # Project documentation
-│
-├── 📂 utilities/                      # Core utilities package
-│   ├── 📄 __init__.py                 # Package initialization
-│   ├── 📄 common.py                   # Shared utility functions
-│   ├── 📄 resume_parser.py            # Resume parsing logic
-│   └── 📄 job_matcher.py              # Job matching algorithm
-│
-├── 📂 resources/                      # Data files and resources
-│   ├── 📄 job_dataset.csv             # Job database (321 jobs)
-│   ├── 📄 skills.txt                  # Programming skills list
-│   ├── 📄 job_titles.txt              # Job title keywords
-│   ├── 📄 degree_keywords.txt         # Education qualifications
-│   └── 📂 uploads/                    # Temporary resume uploads
-│
-├── 📂 templates/                      # HTML templates
-│   ├── 📄 index.html                  # Main page
-│   └── 📄 developerinfo.html          # Developer info page
-│
-└── 📂 static/                         # Static assets
-    ├── 📂 css/
-    │   └── 📄 style.css               # Stylesheet with dark mode
-    └── 📂 js/
-        └── 📄 script.js               # Client-side JavaScript
-
-```
-
-### 📝 Key Files Description
-
-- **`app.py`**: Flask routes, file upload handling, error management
-- **`utilities/resume_parser.py`**: PDF parsing, skill extraction, NER processing
-- **`utilities/job_matcher.py`**: Dataset loading, degree normalization, similarity calculation
-- **`utilities/common.py`**: Shared functions (degree extraction, text preprocessing)
-- **`config.py`**: Application configuration (upload folder, allowed extensions, max file size)
-- **`resources/job_dataset.csv`**: Contains 321 jobs with titles, descriptions, requirements, locations
-
----
-
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
-- Python 3.8 or higher
-- pip package manager
-- Virtual environment (recommended)
+- Python 3.8+
+- pip
 
-### Step-by-Step Setup
+### Setup Steps
 
-1️⃣ **Clone the Repository**
+1. Clone repository.
 
 ```bash
 git clone https://github.com/avishek-sarkar/Job-Recommendation-System.git
 cd Job-Recommendation-System
 ```
 
-2️⃣ **Create Virtual Environment**
+2. Create and activate virtual environment.
 
 ```bash
-# Windows
+# Windows PowerShell
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\Activate.ps1
 
 # macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-3️⃣ **Install Dependencies**
+3. Install dependencies.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4️⃣ **Download spaCy Language Model**
+4. Ensure spaCy model is available.
 
 ```bash
 python -m spacy download en_core_web_sm
 ```
 
-5️⃣ **Verify Installation**
+5. Optional environment file.
 
 ```bash
-python -c "import spacy; import sklearn; import fitz; print('✅ All dependencies installed!')"
+copy .env.example .env
 ```
 
----
+### Configuration
 
-## 🎮 Usage
+Environment variables (`.env`):
 
-### Running the Application
+- `SECRET_KEY`
+- `DEBUG`
 
-1️⃣ **Start the Flask Server**
+Main app configuration (`config.py`):
 
-```bash
-python app.py
+- `UPLOAD_FOLDER`
+- `MAX_CONTENT_LENGTH`
+- `ALLOWED_EXTENSIONS`
+- `DATASET_PATH`
+- `TOP_N_MATCHES`
+- `FEATURE_WEIGHTS`
+
+## Project Structure
+
+```text
+Job-Recommendation-System/
+|-- app.py
+|-- config.py
+|-- requirements.txt
+|-- .env.example
+|-- LICENSE
+|-- README.md
+|-- resources/
+|   |-- job_dataset.csv
+|   |-- skills.txt
+|   |-- job_titles.txt
+|   |-- degree_keywords.txt
+|   `-- uploads/
+|-- static/
+|   |-- css/
+|   |   `-- style.css
+|   `-- js/
+|       `-- script.js
+|-- templates/
+|   |-- index.html
+|   `-- developerinfo.html
+`-- utilities/
+    |-- __init__.py
+    |-- common.py
+    |-- resume_parser.py
+    `-- job_matcher.py
 ```
 
-2️⃣ **Open Your Browser**
+## Limitations and Future Improvements
 
-Navigate to: `http://127.0.0.1:5000`
+### Current Limitation
 
-3️⃣ **Upload Resume**
+The recommendation engine is complete for dataset-based matching. However, the dataset is static and can become outdated.
 
-- Click "Choose PDF File" button
-- Select your resume (PDF format, max 10 MB)
-- Click "Get Job Recommendations"
+### Future Improvements
 
-4️⃣ **View Results**
+- Automated dataset updater using crawler or official APIs.
+- Scheduled refresh pipeline for new jobs.
+- Database-backed storage instead of CSV.
+- Better filtering for salary, remote work, and role type.
+- Candidate profile history and saved jobs.
+- Email alerts for relevant new openings.
 
-- Top 5 recommended jobs displayed with similarity scores
-- Click "View Details" to see full job descriptions
+This is the highest-value collaboration area for contributors.
 
-### 🖼️ Using the Interface
+## License
 
-```
-+------------------------------------------+
-|  Job Recommendation System               |
-|  AI-powered career matching              |
-|                                          |
-|  [Theme Toggle]                          |
-|                                          |
-|  +------------------------------------+  |
-|  |  Choose PDF File                   |  |
-|  +------------------------------------+  |
-|                                          |
-|  [Get Job Recommendations]               |
-|                                          |
-|  ----------- Results -----------         |
-|                                          |
-|  Software Engineer                       |
-|  San Francisco, CA                       |
-|  [View Details]                          |
-|                                          |
-+------------------------------------------+
-```
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
----
+## Collaboration
 
-## ⚙️ Configuration
+Contributions are welcome, especially for:
 
-### Customizing the System
+- Job crawler/API ingestion pipeline.
+- Data cleaning and deduplication automation.
+- Replacing CSV with production-grade database.
+- Test coverage and CI improvements.
 
-**📁 Upload Settings** (`config.py`)
+If you contribute meaningfully, proper credit will be provided.
 
-```python
-UPLOAD_FOLDER = 'resources/uploads'  # Upload directory
-ALLOWED_EXTENSIONS = {'pdf'}          # Allowed file types
-MAX_FILE_SIZE = 10 * 1024 * 1024     # 10 MB limit
-```
+## Developer Info
 
-**🎯 Matching Weights** (`utilities/job_matcher.py`)
+- Avishek Sarkar: https://github.com/avishek-sarkar
+- Prantic Paul: https://github.com/prantic007
+- In-app developer page: `http://127.0.0.1:5000/developerinfo`
 
-```python
-weighted_resume = (
-    titles_resume * 10 +      # Job titles (highest priority)
-    skills_resume * 9 +        # Skills
-    experience_resume * 3 +    # Experience
-    degrees_resume * 3 +       # Education
-    location_resume * 2        # Location
-)
-```
+## Contact
 
-**📚 Resource Files**
-
-- `skills.txt`: Add new programming languages/frameworks
-- `job_titles.txt`: Add new job title keywords
-- `degree_keywords.txt`: Add new degree abbreviations
-- `job_dataset.csv`: Update with new job postings
-
----
-
-## 🤝 Collaboration Opportunity
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/216122041-518ac897-8d92-4c6b-9b3f-ca01dcaf38ee.png" width="200">
-  
-  ### 🚨 We Need Your Help! 🚨
-</div>
-
-### 🔍 The Challenge
-
-The **Job Recommendation System** is **feature-complete** and fully functional for matching resumes with job postings. However, we're currently using a **static dataset** from **early 2025** containing 321 jobs. This dataset is significantly **outdated** and doesn't reflect the current job market.
-
-### 🎯 What We Need
-
-We're looking for contributors to build a **Job Dataset Updater** system that can:
-
-- 🕷️ **Web Crawler/Scraper**: Automatically fetch job postings from popular job boards
-  - LinkedIn Jobs
-  - Indeed
-  - Glassdoor
-  - Monster
-  - SimplyHired
-- 🔄 **Automated Updates**: Schedule periodic updates (daily/weekly)
-- 🧹 **Data Cleaning**: Standardize job data format to match our CSV schema
-- 📊 **Data Validation**: Ensure data quality and remove duplicates
-- 💾 **Database Integration**: Replace CSV with a scalable database (PostgreSQL/MongoDB)
-- 🔌 **API Integration**: Use official APIs where available (respecting terms of service)
-
-### 🚫 Why We Couldn't Build It
-
-Due to various **limitations**, we were unable to implement the dataset updater:
-
-- ⚖️ **Legal Concerns**: Web scraping terms of service restrictions
-- 💰 **API Costs**: Premium API access for job boards
-- ⏰ **Time Constraints**: Development timeline limitations
-- 🛠️ **Technical Complexity**: Anti-scraping measures and rate limiting
-
-### 🌟 How You Can Contribute
-
-We welcome developers, data engineers, and enthusiasts who are interested in:
-
-1. 🤖 **Building Web Scrapers**: Using BeautifulSoup, Scrapy, or Selenium
-2. 🔌 **API Integration**: Implementing official job board APIs
-3. 📊 **Data Engineering**: ETL pipelines and data transformation
-4. 🗄️ **Database Design**: Migrating from CSV to scalable databases
-5. ☁️ **Cloud Deployment**: Setting up automated jobs on AWS/Azure/GCP
-
-### 🎁 What You'll Get
-
-- ✨ **Full Credit**: Your name featured prominently in the project
-- 🏆 **Recognition**: Listed as a key contributor in README and documentation
-- 📚 **Learning Opportunity**: Gain experience in web scraping, APIs, and data engineering
-- 🤝 **Collaboration**: Work with experienced developers
-- 💼 **Portfolio Project**: Showcase your contribution on GitHub and resume
-
-### 📋 Contribution Guidelines
-
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/dataset-updater`
-3. Implement your changes with proper documentation
-4. Add tests and ensure existing tests pass
-5. Submit a pull request with detailed description
-6. We'll review and provide feedback
-
-### 💡 Suggested Approaches
-
-```python
-# Example: Job Scraper Architecture
-class JobDataUpdater:
-    def __init__(self):
-        self.sources = ['linkedin', 'indeed', 'glassdoor']
-        self.db = Database()
-    
-    def scrape_jobs(self, source):
-        """Scrape jobs from specified source"""
-        pass
-    
-    def clean_data(self, raw_data):
-        """Standardize and validate job data"""
-        pass
-    
-    def update_database(self, cleaned_data):
-        """Update job database with new postings"""
-        pass
-    
-    def schedule_updates(self):
-        """Run automated updates periodically"""
-        pass
-```
-
-<div align="center">
-
-### 🚀 Ready to Contribute?
-
-**Contact us or open an issue to discuss your ideas!**
-
-[![GitHub Issues](https://img.shields.io/badge/GitHub-Issues-red?style=for-the-badge&logo=github)](https://github.com/avishek-sarkar/Job-Recommendation-System/issues)
-[![Email](https://img.shields.io/badge/Email-Contact-blue?style=for-the-badge&logo=gmail)](mailto:avishek1416@gmail.com)
-
-</div>
-
----
-
-## 👥 Developers
-
-<div align="center">
-
-### 🎨 Meet the Team
-
-<table>
-<tr>
-<td align="center" width="50%">
-<a href="https://github.com/avishek-sarkar">
-<img src="https://github.com/avishek-sarkar.png" width="150" style="border-radius: 50%; border: 3px solid #0057a0;"><br>
-</a>
-<b>Avishek Sarkar</b><br>
-<i>Developer</i><br><br>
-<a href="https://github.com/avishek-sarkar">
-<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
-</a>
-</td>
-<td align="center" width="50%">
-<a href="https://github.com/prantic007">
-<img src="https://github.com/prantic007.png" width="150" style="border-radius: 50%; border: 3px solid #0057a0;"><br>
-</a>
-<b>Prantic Paul</b><br>
-<i>Developer</i><br><br>
-<a href="https://github.com/prantic007">
-<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
-</a>
-</td>
-</tr>
-</table>
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="600">
-
-### 🌐 View Full Developer Profiles
-
-Visit our [Developer Info Page](http://127.0.0.1:5000/developerinfo) to see real-time GitHub statistics and profiles!
-
-</div>
-
----
-
-## 📞 Contact
-
-<div align="center">
-
-### 💬 Get in Touch
-
-We'd love to hear from you! Whether you have questions, suggestions, or want to collaborate.
-
-<table>
-<tr>
-<td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/216122065-2f028bae-25d6-4a3c-bc9f-175394ed5011.png" width="80"><br>
-<b>Email</b><br>
-<a href="mailto:avishek1416@gmail.com">avishek1416@gmail.com</a>
-</td>
-<td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif" width="80"><br>
-<b>GitHub</b><br>
-<a href="https://github.com/avishek-sarkar">@avishek-sarkar</a>
-</td>
-</tr>
-</table>
-
-### 📬 Project Links
-
-[![Repository](https://img.shields.io/badge/Repository-Job%20Recommendation%20System-0057a0?style=for-the-badge&logo=github)](https://github.com/avishek-sarkar/Job-Recommendation-System)
-[![Documentation](https://img.shields.io/badge/Documentation-README-28a745?style=for-the-badge&logo=read-the-docs&logoColor=white)](README.md)
-[![Issues](https://img.shields.io/badge/Issues-Open-red?style=for-the-badge&logo=github)](https://github.com/avishek-sarkar/Job-Recommendation-System/issues)
-[![Pull Requests](https://img.shields.io/badge/Pull%20Requests-Welcome-brightgreen?style=for-the-badge&logo=github)](https://github.com/avishek-sarkar/Job-Recommendation-System/pulls)
-
-</div>
-
----
-
-## 📄 License
-
-<div align="center">
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2025 Avishek Sarkar
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-</div>
-
----
-
-## 🙏 Acknowledgments
-
-<div align="center">
-
-Special thanks to:
-
-- 🌟 **spaCy Team** for the amazing NLP library
-- 🔬 **scikit-learn Contributors** for machine learning tools
-- 🐍 **Python Community** for excellent documentation
-
-</div>
-
----
-
-## 📊 Project Stats
-
-<div align="center">
-
-![GitHub repo size](https://img.shields.io/github/repo-size/avishek-sarkar/Job-Recommendation-System?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/avishek-sarkar/Job-Recommendation-System?style=for-the-badge)
-![GitHub top language](https://img.shields.io/github/languages/top/avishek-sarkar/Job-Recommendation-System?style=for-the-badge&color=yellow)
-![GitHub last commit](https://img.shields.io/github/last-commit/avishek-sarkar/Job-Recommendation-System?style=for-the-badge&color=red)
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0057a0,100:28a745&height=100&section=footer" width="100%"/>
-
-### ⭐ If you find this project helpful, please give it a star!
-
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
-
-**Made with ❤️ by Avishek Sarkar & Prantic Paul**
-
-</div>
+- Email: avishek1416@gmail.com
+- GitHub issues: https://github.com/avishek-sarkar/Job-Recommendation-System/issues
