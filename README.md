@@ -51,22 +51,24 @@ Manual job search is time-consuming and inconsistent. This system automates the 
 flowchart TD
     A[User opens /] --> B[index route renders upload page]
     B --> C[User uploads PDF to POST /upload]
-    C --> D[validate_file_upload]
+    C --> D{validate_file_upload}
     D -->|invalid| E[flash error and redirect to index]
     D -->|valid| F[save_uploaded_file]
     F --> G[process_resume]
     G --> H[parse_resume]
     H --> I[extract_text_from_pdf]
-    I --> J[extract_skills, experience, degrees, location, titles]
+    H --> J[extract_skills, experience, degrees, location, titles]
     G --> K[load_and_clean_dataset]
-    K --> L[combine_resume_features]
-    L,I --> M[TF-IDF ngrams 1..3]
+    G --> L[combine_resume_features]
+    I --> M[TF-IDF vectorization 1-3 grams]
+    J --> M
+    L --> M
     M --> N[cosine_similarity and top N ranking]
     N --> O[return top job matches]
     O --> P[cleanup_file]
     P --> Q[render index with recommendations]
     A --> R[User opens /developerinfo]
-    R --> T[developerinfo route renders profile page]
+    R --> S[developerinfo route renders profile page]
 ```
 
 ## How It Works
@@ -251,10 +253,30 @@ If you contribute meaningfully, proper credit will be provided.
 
 ## Developer Info
 
-| Developer | GitHub Profile |
-|---|---|
-| [![Avishek Sarkar](https://github.com/avishek-sarkar.png?size=50)](https://github.com/avishek-sarkar) **Avishek Sarkar** | [github.com/avishek-sarkar](https://github.com/avishek-sarkar) |
-| [![Prantic Paul](https://github.com/prantic007.png?size=50)](https://github.com/prantic007) **Prantic Paul** | [github.com/prantic007](https://github.com/prantic007) |
+<table>
+    <tr>
+        <th>Developer</th>
+        <th>GitHub Profile</th>
+    </tr>
+    <tr>
+        <td>
+            <a href="https://github.com/avishek-sarkar">
+                <img src="https://github.com/avishek-sarkar.png?size=80" width="48" height="48" alt="Avishek Sarkar" style="border-radius:50%; vertical-align:middle; margin-right:10px;" />
+                <strong>Avishek Sarkar</strong>
+            </a>
+        </td>
+        <td><a href="https://github.com/avishek-sarkar">github.com/avishek-sarkar</a></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="https://github.com/prantic007">
+                <img src="https://github.com/prantic007.png?size=80" width="48" height="48" alt="Prantic Paul" style="border-radius:50%; vertical-align:middle; margin-right:10px;" />
+                <strong>Prantic Paul</strong>
+            </a>
+        </td>
+        <td><a href="https://github.com/prantic007">github.com/prantic007</a></td>
+    </tr>
+</table>
 
 ## Contact
 
