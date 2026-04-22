@@ -31,51 +31,43 @@ Manual job search is time-consuming and inconsistent. This system automates the 
 
 ## Tech Stack
 
-### Frontend
-
-- HTML5
-- CSS3
-- JavaScript
-
-### Backend
-
-- Python 3.8+
-- Flask 3.1.0
-- pandas 2.2.3
-- NumPy 1.26.4
-- scikit-learn 1.6.1
-
-### NLP and PDF Processing
-
-- spaCy 3.7.2 with `en_core_web_sm`
-- PyMuPDF 1.25.5
-
-### Supporting Libraries
-
-- Werkzeug 3.1.3
-- python-dotenv 1.0.0
-- requests 2.32.3
+| Category | Technology | Version | Purpose |
+|---|---|---|---|
+| Frontend | HTML5, CSS3, JavaScript | N/A | User interface, theming, and client-side interactions |
+| Backend | Python | 3.8+ | Core application runtime |
+| Backend Framework | Flask | 3.1.0 | Web server, routing, templates, and request handling |
+| Data Processing | pandas | 2.2.3 | CSV loading, cleaning, and transformation |
+| Numerical Computing | NumPy | 1.26.4 | Numerical operations for ML workflow |
+| Machine Learning | scikit-learn | 1.6.1 | TF-IDF vectorization and cosine similarity ranking |
+| NLP | spaCy + en_core_web_sm | 3.7.2 | Tokenization, lemmatization, and NER-based extraction |
+| PDF Parsing | PyMuPDF | 1.25.5 | Resume text extraction from PDF files |
+| Serving Utilities | Werkzeug | 3.1.3 | Secure file handling and request utilities |
+| Configuration | python-dotenv | 1.0.0 | Environment variable loading |
+| HTTP Client | requests | 2.32.3 | API calls for developer profile integration |
 
 ## System Architecture
 
 ```mermaid
-flowchart LR
-    U[User uploads PDF resume] --> V[Flask route /upload]
-    V --> W[File validation and save]
-    W --> X[Resume parser]
-    X --> X1[PDF text extraction]
-    X --> X2[Skill extraction]
-    X --> X3[Experience extraction]
-    X --> X4[Degree extraction]
-    X --> X5[Location and title extraction]
-    X --> Y[Job matcher]
-    Y --> Y1[Load and clean job dataset]
-    Y --> Y2[Normalize education and keywords]
-    Y --> Y3[Combine weighted resume features]
-    Y --> Y4[TF-IDF vectorization]
-    Y --> Y5[Cosine similarity ranking]
-    Y --> Z[Top job recommendations]
-    Z --> UI[Render results in index page]
+flowchart TD
+    A[User opens /] --> B[index route renders upload page]
+    B --> C[User uploads PDF to POST /upload]
+    C --> D[validate_file_upload]
+    D -->|invalid| E[flash error and redirect to index]
+    D -->|valid| F[save_uploaded_file]
+    F --> G[process_resume]
+    G --> H[parse_resume]
+    H --> H1[extract_text_from_pdf]
+    H --> H2[extract_skills, experience, degrees, location, titles]
+    G --> I[match_resume_to_jobs]
+    I --> I1[load_and_clean_dataset]
+    I --> I2[combine_resume_features]
+    I --> I3[TF-IDF ngrams 1..3]
+    I --> I4[cosine_similarity and top N ranking]
+    I4 --> J[return top job matches]
+    J --> K[cleanup_file]
+    K --> L[render index with recommendations]
+    A --> M[User opens /developerinfo]
+    M --> N[developerinfo route renders profile page]
 ```
 
 ## How It Works
@@ -111,11 +103,13 @@ flowchart LR
 
 Matching uses weighted resume fields from `Config.FEATURE_WEIGHTS`:
 
-- titles: 10
-- skills: 9
-- experience: 3
-- degrees: 3
-- location: 2
+| Feature | Weight |
+|---|---:|
+| titles | 10 |
+| skills | 9 |
+| experience | 3 |
+| degrees | 3 |
+| location | 2 |
 
 Then:
 
@@ -130,6 +124,37 @@ Then:
 - Live filename feedback.
 - Dark/light theme toggle.
 - Developer info page with GitHub API data.
+
+## Project Structure
+
+```text
+Job-Recommendation-System/
+|-- app.py
+|-- config.py
+|-- requirements.txt
+|-- .env.example
+|-- LICENSE
+|-- README.md
+|-- resources/
+|   |-- job_dataset.csv
+|   |-- skills.txt
+|   |-- job_titles.txt
+|   |-- degree_keywords.txt
+|   `-- uploads/
+|-- static/
+|   |-- css/
+|   |   `-- style.css
+|   `-- js/
+|       `-- script.js
+|-- templates/
+|   |-- index.html
+|   `-- developerinfo.html
+`-- utilities/
+    |-- __init__.py
+    |-- common.py
+    |-- resume_parser.py
+    `-- job_matcher.py
+```
 
 ## Installation
 
@@ -192,37 +217,6 @@ Main app configuration (`config.py`):
 - `DATASET_PATH`
 - `TOP_N_MATCHES`
 - `FEATURE_WEIGHTS`
-
-## Project Structure
-
-```text
-Job-Recommendation-System/
-|-- app.py
-|-- config.py
-|-- requirements.txt
-|-- .env.example
-|-- LICENSE
-|-- README.md
-|-- resources/
-|   |-- job_dataset.csv
-|   |-- skills.txt
-|   |-- job_titles.txt
-|   |-- degree_keywords.txt
-|   `-- uploads/
-|-- static/
-|   |-- css/
-|   |   `-- style.css
-|   `-- js/
-|       `-- script.js
-|-- templates/
-|   |-- index.html
-|   `-- developerinfo.html
-`-- utilities/
-    |-- __init__.py
-    |-- common.py
-    |-- resume_parser.py
-    `-- job_matcher.py
-```
 
 ## Limitations and Future Improvements
 
