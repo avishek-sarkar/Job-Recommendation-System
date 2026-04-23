@@ -252,20 +252,24 @@ If you contribute meaningfully, proper credit will be provided.
 
 ## Developer Info
 
-<div align="center">
-    <div style="display: inline-block; width: 180px; padding: 16px; margin: 0 12px; border: 1px solid #d0d7de; border-radius: 8px; text-align: center; vertical-align: top;">
-        <a href="https://github.com/avishek-sarkar">
-            <img src="https://github.com/avishek-sarkar.png?size=140" width="88" height="88" alt="Avishek Sarkar" style="display: block; margin: 0 auto 10px;" />
-            <strong>Avishek Sarkar</strong>
-        </a>
-    </div>
-    <div style="display: inline-block; width: 180px; padding: 16px; margin: 0 12px; border: 1px solid #d0d7de; border-radius: 8px; text-align: center; vertical-align: top;">
-        <a href="https://github.com/prantic007">
-            <img src="https://github.com/prantic007.png?size=140" width="88" height="88" alt="Prantic Paul" style="display: block; margin: 0 auto 10px;" />
-            <strong>Prantic Paul</strong>
-        </a>
-    </div>
-</div>
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/avishek-sarkar">
+                <img src="https://github.com/avishek-sarkar.png?size=120" width="80" height="80" alt="Avishek Sarkar" />
+                <br />
+                <strong>Avishek Sarkar</strong>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/prantic007">
+                <img src="https://github.com/prantic007.png?size=120" width="80" height="80" alt="Prantic Paul" />
+                <br />
+                <strong>Prantic Paul</strong>
+            </a>
+        </td>
+    </tr>
+</table>
 
 ## Contact
 
